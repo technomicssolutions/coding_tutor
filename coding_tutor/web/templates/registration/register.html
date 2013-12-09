@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}	
+	<div>
+		<div class="content">
+			<header>
+				<div class="content">
+					<h1> SITE NAME </h1>
+				</div>
+			</header>
+			<div class="content">
+				<form method="post" action="{% url 'signup'%}">
+					{% csrf_token %}
+					<div class="register">
+						Course: <select name="course" >
+									<option>Select Course</option>
+									<option>Python</option>
+									<option>PHP</option>
+								</select><br />
+						First Name: <input type="text" name="first_name" ><br />
+						Last Name: <input type="text" name="last_name">	<br />		Email: <input type="email" name="email"/><br />
+						Card Number : <input type="text" name="card_number"/><br />
+						Verification code : <input type="text" name="verification_code"/><br />
+						Expiration date: <select name="month" >
+											<option>Month</option>
+											<option>Jan</option>
+											<option>Feb</option>
+										</select>
+										<select name="year" >
+											<option>Year</option>
+											<option>2013</option>
+											<option>2012</option>
+										</select><br />
+						<input type="submit" id="register" value="Submit" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

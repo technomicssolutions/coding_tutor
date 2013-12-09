@@ -1,0 +1,72 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+.container {
+	width: 100%;	
+}
+header {
+	width: 100%;
+	height: 50px;
+}
+.banner {
+	width: 100%;
+	height: 400px;
+	background-color: gray;
+	color: #fff;
+}
+.menu {
+	width: 100%;
+	height: 50;
+	background-color: #cccccc;
+	color: #ffffff;
+}
+.examples {
+	width: 100%;
+	height: 400%;
+	background-color: #c6c6c6;
+
+}
+.courses {
+	width: 100%;
+	height: auto;
+}
+
+footer {
+	width: 100%;
+	height: 200px;
+	background-color: #F3F3F3;
+}
+
+header h1 {
+	width: 50%;
+	display: block;
+	float: left;
+}
+.banner p {
+	text-align: center;
+}
+.right {
+	float: right;
+}
+.content{
+	width: 80%;
+	margin: auto;
+	height: auto;
+}
+ul li {
+	list-style: none;
+	display: block;
+	margin: 10px;
+	float: left;
+}
+ul {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+.login, .register {
+	width: 500px;
+	height: 300px;
+	margin: auto;
+}

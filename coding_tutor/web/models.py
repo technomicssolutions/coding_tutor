@@ -29,12 +29,24 @@ class Session(models.Model):
 	def __unicode__(self):
 		return self.tutor.first_name + ' - ' + self.leaner.first_name
 
+class Course(models.Model):
+	name = models.CharField('Course',max_length=100)
+	description = models.TextField('Description')
+
 class UserProfile(models.Model):
 	user = models.ForeignKey(User)
 	role = models.CharField('Role', max_length=6)
 	programming_languages = models.ManyToManyField(ProgrammingLanguage)
 	location = models.TextField('Location')
 	hourly_rate = models.CharField('Hourly Rate', max_length=3)
+	course = models.ForeignKey(Course,null=True, blank=True)
+	card_number = models.IntegerField(null=True, blank=True)
+	verification_code = models.CharField(max_length=6,null=True, blank=True)
+	expiration_date = models.DateTimeField(null=True, blank=True)
+
 
 	def __unicode__(self):
 		return self.user.first_name + ' ' + self.user.last_name
+
+
+

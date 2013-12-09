@@ -5,7 +5,7 @@ PIL==1.1.7
 django-wsgiserver==0.6.9
 distribute==0.6.21
 wsgiref==0.1.2
-psycopg2==2.2.2
+psycopg2==2.4.2
 uWSGI==1.2
 django-tinymce==1.5.1b2
 
