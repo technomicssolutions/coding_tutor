@@ -1,23 +1,19 @@
-<html>
-	<head>
-		<title>Login</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-	</head>
-	<body>
-		<div class="container">
-			<div class="content">
-				<header>
-					<div class="content">
-						<h1> SITE NAME </h1>
-						
-					</div>
-				</header>
-				<div class="login">
-					Email: <input type="email" /></br>
-					Password : <input type="password" />
-					<input type="button" value="Login" />
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}
+{% block header %}
+	<div class="content">
+		<h1> SITE NAME </h1>
+		
+	</div>
+{% endblock header %}
+{% block content %}
+	<div class="login">
+		<form method="post" action="{% url 'login'%}">
+			{% csrf_token %} 
+			Email: <input type="email" name="email" /></br>
+			Password : <input type="password" name="password"/>
+			<input type="submit" id="login" value="Login" />
+		</form>
+	</div>
+	{{message}}
+{% endblock content %}

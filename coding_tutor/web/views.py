@@ -1,8 +1,8 @@
-# Create your views here.
 from django.shortcuts import render
 from django.views.generic.base import View
 from django.http import HttpResponse
 from web.models import *
+from django.contrib.auth import authenticate,login
 
 class Home(View):
     def get(self, request, *args, **kwargs):
@@ -16,16 +16,12 @@ class SignUp(View):
         return render(request, template, {})
 
     def post(self, request, *args, **kwargs):
-
-    	print "a"*10,request.POST
-
+        template = 'registration/register.html'
     	first_name =  request.POST['first_name']
     	last_name = request.POST['last_name']
     	email = request.POST['email']
-
     	course = request.POST['course']
     	description = course
-
     	month = request.POST['month']
     	verification_code = request.POST['verification_code']
     	year = request.POST['year']
@@ -37,5 +33,28 @@ class SignUp(View):
     	course = Course.objects.create(name=course,description=description)
     	userprofile = UserProfile.objects.create(user=user,course=course,verification_code=verification_code,card_number=card_number)
     	userprofile.save()
-    	return HttpResponse({'succes': True})
+        message = "successfully Registered"
+    	return render(request, template, {'message': message}) 
+
+class Login(View):
+
+    def get(self, request, *args, **kwargs):
+        template = 'login.html'
+        return render(request, template, {})
+
+    def post(self, request, *args, **kwargs):
+        template = 'login.html'
+        username = request.POST['email']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    message = "successfully logged in"
+                else:
+                    message = "user is not active"
+        else:
+            message = "Incorrect username and password"
+
+        return render(request, template, {'message': message}) 
 

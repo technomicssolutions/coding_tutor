@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from web.views import (Home,SignUp)
+from web.views import (Home,SignUp,Login)
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     # url(r'^coding_tutor/', include('coding_tutor.foo.urls')),
     url(r'^$', Home.as_view(), name='home'),
     url(r'^register/$', SignUp.as_view(), name='signup'),
+    url(r'^login/$', Login.as_view(), name='login'),
     url(r'^admin/', include(admin.site.urls)),
     
 

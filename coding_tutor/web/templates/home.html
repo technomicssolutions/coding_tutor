@@ -4,7 +4,7 @@
 		<h1> SITE NAME </h1>
 		<div class="right">
 			<a href="{% url 'signup'%}" >Signup</a><br />
-			<a href="login.html" class="right">Login</a>
+			<a href="{% url 'login'%}" class="right">Login</a>
 		</div>
 	</div>
 {% endblock header %}
@@ -13,6 +13,7 @@
 		<div class="content">
 			<p> Learn Fast coding </p>
 			<p>Enter your Email : <input type="email" ></p>
+			<input type="submit" id="login" value="LEARN MORE" />
 		</div>
 	</section>
 	<section class="menu">
